@@ -1,5 +1,5 @@
 let storage = 'listdata'
-let array = JSON.parse(localStorage.getItem(storage)) || ['abc', '123'];
+let array = JSON.parse(localStorage.getItem(storage)) || [];
 let inputValue = document.getElementById('task')
 let taskList = document.getElementById('taskList')
 
@@ -14,6 +14,12 @@ function add() {
         render(); 
     }
 }
+inputValue.addEventListener('keydown', function(e){
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        add();
+    }
+});
 
 render()
 function render() {
